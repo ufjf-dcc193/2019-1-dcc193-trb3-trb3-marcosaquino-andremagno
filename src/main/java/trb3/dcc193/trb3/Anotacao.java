@@ -1,12 +1,16 @@
 package trb3.dcc193.trb3;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name="area")
 public class Anotacao{
 
     @Id
@@ -16,6 +20,7 @@ public class Anotacao{
     private String titulo;
     private String descricao;
     private String url;
+    @OneToOne(fetch = FetchType.EAGER)
     private Usuario usuario;
     private String dataDeInclusao;
     private String dataDeAlteracao;

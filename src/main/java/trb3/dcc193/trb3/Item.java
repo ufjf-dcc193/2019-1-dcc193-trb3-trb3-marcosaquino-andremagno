@@ -3,13 +3,16 @@ package trb3.dcc193.trb3;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-
 @Entity
+@Table(name="area")
 public class Item {
 
     @Id
@@ -17,8 +20,11 @@ public class Item {
     private Long id;
     @NotNull(message="Campo obrigatório!")
     private String titulo;
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Anotacao> anotacoes;
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Etiqueta> etiquetas;
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Vinculo> vinculos;
 
     public Item(){
