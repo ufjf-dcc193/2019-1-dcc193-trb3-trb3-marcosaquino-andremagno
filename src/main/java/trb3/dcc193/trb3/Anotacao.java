@@ -4,10 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "anotacao")
 public class Anotacao{
 
     @Id
@@ -87,5 +85,13 @@ public class Anotacao{
     public void setDataDeAlteracao(String dataDeAlteracao) {
         this.dataDeAlteracao = dataDeAlteracao;
     }
+
+    @Override
+    public String toString() {
+        return "Anotacao [dataDeAlteracao=" + dataDeAlteracao + ", dataDeInclusao=" + dataDeInclusao + ", descricao="
+                + descricao + ", id=" + id + ", titulo=" + titulo + ", url=" + url + ", usuario=" + usuario + "]";
+    }
+
+    
 
 }

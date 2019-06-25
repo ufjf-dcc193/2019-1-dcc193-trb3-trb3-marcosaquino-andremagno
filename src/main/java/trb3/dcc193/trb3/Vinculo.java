@@ -6,10 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "vinculo")
 public class Vinculo {
 
     @Id
@@ -68,4 +66,12 @@ public class Vinculo {
     public void setAnotacoes(List<Anotacao> anotacoes) {
         this.anotacoes = anotacoes;
     }
+
+    @Override
+    public String toString() {
+        return "Vinculo [anotacoes=" + anotacoes + ", destino=" + destino + ", etiquetas=" + etiquetas + ", id=" + id
+                + ", origem=" + origem + "]";
+    }
+
+    
 }

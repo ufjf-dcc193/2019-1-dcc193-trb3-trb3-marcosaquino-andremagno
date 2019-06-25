@@ -6,11 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "item")
 public class Item {
 
     @Id
@@ -68,4 +66,12 @@ public class Item {
     public void setVinculos(List<Vinculo> vinculos) {
         this.vinculos = vinculos;
     }
+
+    @Override
+    public String toString() {
+        return "Item [anotacoes=" + anotacoes + ", etiquetas=" + etiquetas + ", id=" + id + ", titulo=" + titulo
+                + ", vinculos=" + vinculos + "]";
+    }
+
+
 }

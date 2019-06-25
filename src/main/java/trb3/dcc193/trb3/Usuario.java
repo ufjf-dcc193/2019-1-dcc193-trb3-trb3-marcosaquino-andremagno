@@ -4,10 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuario")
 public class Usuario{
 
 
@@ -68,5 +66,13 @@ public class Usuario{
 
     public void setEmail(String email) {
         this.email = email;
-    }    
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario [codigo=" + codigo + ", descricao=" + descricao + ", email=" + email + ", id=" + id
+                + ", nomeCompleto=" + nomeCompleto + "]";
+    }
+
+    
 }
