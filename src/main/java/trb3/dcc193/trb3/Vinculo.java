@@ -11,7 +11,7 @@ import javax.persistence.Id;
 public class Vinculo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Item origem;
     private Item destino;
