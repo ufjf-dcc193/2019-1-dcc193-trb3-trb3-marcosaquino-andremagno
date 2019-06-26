@@ -6,10 +6,9 @@
 </head>
 <body>
    <html>Novo Item</html>
-   <form th:action="@{form.html}" th:object="${item}" method="POST">
+   <form th:action="@{salvar.html}" th:object="${item}" method="POST">
        <label>Titulo: <input type="text" th:field="*{titulo}"/></label>
        <input type="submit"/>
-       <input type="reset"/>
    </form>
 </body>
 </html>
