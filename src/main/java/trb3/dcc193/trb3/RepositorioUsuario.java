@@ -1,8 +1,12 @@
 package trb3.dcc193.trb3;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-public interface RepositorioUsuario extends JpaRepository<Vinculo, Long>{
+@Repository
+@Transactional
+public interface RepositorioUsuario extends CrudRepository<Usuario, Long>{
 
 
 
