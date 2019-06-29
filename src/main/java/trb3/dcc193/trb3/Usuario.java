@@ -13,11 +13,10 @@ public class Usuario{
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull(message="Campo obrigatório!")
     private String nomeCompleto;
-    private int codigo;
+    private String codigo;
     private String descricao;
     private String email;
 
@@ -25,7 +24,7 @@ public class Usuario{
 
     }
 
-    public Usuario(String nomeCompleto, int codigo, String descricao, String email) {
+    public Usuario(String nomeCompleto, String codigo, String descricao, String email) {
         this.nomeCompleto = nomeCompleto;
         this.codigo = codigo;
         this.descricao = descricao;
@@ -48,11 +47,11 @@ public class Usuario{
         this.nomeCompleto = nomeCompleto;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
