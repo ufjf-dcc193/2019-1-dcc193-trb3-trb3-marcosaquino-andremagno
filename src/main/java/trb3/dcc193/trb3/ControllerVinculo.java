@@ -55,7 +55,7 @@ public class ControllerVinculo {
        mv.setViewName("Criar/vinculo");
        List<Vinculo> aval = repositorioVinculo.findAll();
        mv.addObject("itens", aval);
-       mv.addObject("vinculo", new Vinculo(new Item("asdads"),new Item("asfa")));
+       mv.addObject("vinculo", new Vinculo());
        return mv;
    }
 

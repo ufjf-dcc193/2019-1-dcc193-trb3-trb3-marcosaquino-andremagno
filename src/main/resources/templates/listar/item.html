@@ -2,12 +2,12 @@
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
    <meta charset="UTF-8">
-   <title>Listagem de Avaliadores</title>
+   <title>Listagem de Itens</title>
 </head>
 <body>
    <table>
        <thead>
-           <tr> <th>id</th> <th>Titulo</th>????????????????????
+           <tr> <th>id</th> <th>Titulo</th>
        </thead>
        <tbody>
          <tr th:each="item: ${itens}">
@@ -19,7 +19,6 @@
                      <a  th:href="@{/item/delete/{id}(id=${item.id})}">Excluir</a>
                </div>
             </td>
-            
          </tr>
          <a  th:href="@{/item/form.html}" >Criar novo Item</a> 
      </tbody>

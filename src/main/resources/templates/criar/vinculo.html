@@ -8,10 +8,9 @@
    <html>Novo Vinculo</html>
    <form th:action="@{form.html}" th:object="${vinculo}" method="POST">
        <label>Origem: 
-
             <select th:each="item: ${itens}">
                   <option value=${item.id}>${item.titulo}></option>
-              </select>
+            </select>
        </label>
        <label>Destino:
 
