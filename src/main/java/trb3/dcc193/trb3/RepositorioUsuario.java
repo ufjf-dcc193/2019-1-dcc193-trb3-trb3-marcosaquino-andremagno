@@ -8,6 +8,4 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface RepositorioUsuario extends CrudRepository<Usuario, Long>{
 
-    Usuario findFirstByEmailAndCodigoAcesso(String email, String codigoAcesso);
-
 }

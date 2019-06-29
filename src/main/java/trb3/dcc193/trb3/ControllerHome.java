@@ -16,20 +16,9 @@ public class ControllerHome {
     @RequestMapping({"","/","home"})
     public String home(Model model){
         model.addAttribute("usuario", new Usuario());
-        return "Home/login";
+        return "Index";
     }
 
-    @RequestMapping("/efetuarLogin")
-    public String login(Usuario usario,Model model, HttpSession session){
-        Usuario usuarioQuery = repositorioUsuario.findFirstByEmailAndCodigoAcesso(usario.getEmail(),usario.getCodigo());
-        System.out.println(usario.toString());
-        if(usuarioQuery != null){
-            session.setAttribute("usuarioLogado", usuarioQuery);++
-            return "redirect:/user/";
-        }else{
-            return "Home/login";
-        }
-    }
 
 
 }
