@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <title>Atividade: Nova</title>
+</head>
+<body>
+        <form th:action="@{./salvar}" th:object="${etiqueta}" method="POST">
+            <label>Titulo: <input type="text" th:field="*{titulo}" /></label>
+            <label>Descrição: <input type="text" th:field="*{descricao}" /></label>
+            <label>URL: <input type="text" th:field="*{url}" /></label>
+            <input type="submit"  />
+            <input type="reset" />
+        </form>      
+</body>
+</html>
+

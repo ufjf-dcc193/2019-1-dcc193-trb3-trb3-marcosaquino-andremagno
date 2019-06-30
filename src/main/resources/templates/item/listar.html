@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <title>Atividade: Nova</title>
+</head>
+<body>
+    <li><a href="item/criar">Criar Novo Item</a></li>
+    <table>
+        <thead>
+            <tr> <th>Operação</th> <th>Operação</th> <th>Titulo</th>
+        </thead>
+        <tbody>
+            <tr th:each="item: ${itens}">
+                <td><a th:href="@{'item/editar/' + ${item.id}}" role="button">Editar</a></td>
+                <td><a th:href="@{'item/deletar/' + ${item.id}}" role="button">Deletar</a></td>
+                <td th:text=${item.Titulo}></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

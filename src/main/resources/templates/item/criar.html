@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <title>Atividade: Nova</title>
+</head>
+<body>
+        <form th:action="@{./salvar}" th:object="${item}" method="POST">
+            <div>
+            <label>Titulo: <input type="text" th:field="*{titulo}" /></label>
+            <label >Etiquetas:</label>
+            </div>
+            <div th:each="estiquetas: ${estiquetas}" th:object=${Etiqueta}>
+                <input type="checkbox" th:value="${estiquetas.id}"
+                    name="etiqueta">
+                <label th:text="${estiquetas.titulo}">
+                </label>
+            </div>
+            <input type="submit"  />
+            <input type="reset" />
+        </form>
+        
+</body>
+</html>
+

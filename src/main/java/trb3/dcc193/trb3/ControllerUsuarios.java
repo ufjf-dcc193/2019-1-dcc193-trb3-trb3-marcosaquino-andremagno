@@ -15,7 +15,7 @@ public class ControllerUsuarios {
 
 
     @RequestMapping("usuario")
-    public String homeAdminUsuario(Model model){
+    public String listarUsuario(Model model){
         model.addAttribute("usuarios",repositorioUsuario.findAll());
         return "usuario/listar";
     }
@@ -27,19 +27,19 @@ public class ControllerUsuarios {
     }
     
     @RequestMapping("usuario/deletar/{id}")
-    public String deletarAdminUsuario(@PathVariable Long id){
+    public String deletarUsuario(@PathVariable Long id){
         repositorioUsuario.deleteById(id);
         return "redirect:/usuario";
     }
 
     @RequestMapping("usuario/editar/{id}")
-    public String editarAdminUsuario(@PathVariable Long id, Model model){
+    public String editarUsuario(@PathVariable Long id, Model model){
         model.addAttribute("usuario",repositorioUsuario.findById(id).get());
         return "usuario/editar";
     }
 
     @RequestMapping("usuario/editar/salvar")
-    public String editarsalvarAdminUsuario(Usuario usuario){
+    public String editarsalvarUsuario(Usuario usuario){
         repositorioUsuario.save(usuario);
         return "redirect:/usuario";
     }
