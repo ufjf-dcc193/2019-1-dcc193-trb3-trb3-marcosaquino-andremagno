@@ -29,7 +29,7 @@ public class ControllerItens {
     @RequestMapping("item/criar")
     public String criarItem(Model model){
         model.addAttribute("item",new Item());
-        model.addAttribute("listaEtiqueta",repositorioEtiqueta.findAll());
+        model.addAttribute("estiquetas",repositorioEtiqueta.findAll());
         return "item/criar";
     }
     @RequestMapping("item/deletar/{id}")
@@ -41,7 +41,7 @@ public class ControllerItens {
     @RequestMapping("item/editar/{id}")
     public String editarItem(@PathVariable Long id, Model model){
         model.addAttribute("item",repositorioItem.findById(id).get());
-        model.addAttribute("listaEtiqueta",repositorioEtiqueta.findAll());
+        model.addAttribute("estiquetas",repositorioEtiqueta.findAll());
         return "item/editar";
     }
 

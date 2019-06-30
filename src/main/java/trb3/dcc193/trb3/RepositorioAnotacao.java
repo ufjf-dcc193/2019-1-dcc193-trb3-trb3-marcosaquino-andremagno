@@ -4,11 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RepositorioAnotacao extends JpaRepository<Anotacao, Long>{
 
-
-
-
-
-
-
-
+    
 }

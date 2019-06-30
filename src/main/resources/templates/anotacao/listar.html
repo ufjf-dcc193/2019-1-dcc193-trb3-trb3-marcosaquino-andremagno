@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <title>Atividade: Nova</title>
+</head>
+<body>
+    <li><a href="anotacao/criar">Criar Nova Anotaçao</a></li>
+    <table>
+        <thead>
+            <tr> <th>Operação</th> <th>Operação</th> <th>Titulo</th><th>Descrição</th> <th>URL</th><th>Data Inclução</th> <th>Data da Alteracao</th>
+        </thead>
+        <tbody>
+            <tr th:each="anotacao: ${anotacoes}">
+                <td><a th:href="@{'anotacao/editar/' + ${anotacao.id}}" role="button">Editar</a></td>
+                <td><a th:href="@{'anotacao/deletar/' + ${anotacao.id}}" role="button">Deletar</a></td>
+                <td th:text=${anotacao.Titulo}></td>
+                <td th:text=${anotacao.descricao}></td>
+                <td th:text=${anotacao.url}></td>
+                <td th:text=${anotacao.dataDeInclusao}></td>
+                <td th:text=${anotacao.dataDeAlteracao}></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
