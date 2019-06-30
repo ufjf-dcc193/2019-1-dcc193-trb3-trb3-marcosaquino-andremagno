@@ -2,6 +2,8 @@ package trb3.dcc193.trb3;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -9,22 +11,44 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ControllerUsuarios {
 
     @Autowired
-    private RepositorioUsuario repositorioUsuario;
-
-    @RequestMapping(method = RequestMethod.GET, value = "/cadastrousuario")
-    public String inicio(){
+    RepositorioUsuario repositorioUsuario;
 
 
-        return "cadastro/cadastrousuario";
+    @RequestMapping("usuario")
+    public String homeAdminUsuario(Model model){
+        model.addAttribute("usuarios",repositorioUsuario.findAll());
+        return "usuario/listar";
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/salvarusuario")
-    public String salvar(Usuario usuario){
+    @RequestMapping("usuario/criar")
+    public String criarUsuario(Model model){
+        model.addAttribute("usuario",new Usuario());
+        return "usuario/criar";
+    }
+    
+    @RequestMapping("usuario/deletar/{id}")
+    public String deletarAdminUsuario(@PathVariable Long id){
+        repositorioUsuario.deleteById(id);
+        return "redirect:/usuario";
+    }
 
+    @RequestMapping("usuario/editar/{id}")
+    public String editarAdminUsuario(@PathVariable Long id, Model model){
+        model.addAttribute("usuario",repositorioUsuario.findById(id).get());
+        return "usuario/editar";
+    }
+
+    @RequestMapping("usuario/editar/salvar")
+    public String editarsalvarAdminUsuario(Usuario usuario){
         repositorioUsuario.save(usuario);
-        return "cadastro/cadastrousuario";
-
-
+        return "redirect:/usuario";
     }
+
+    @RequestMapping("usuario/salvar")
+    public String salvarTrabalho(Usuario usuario){
+        repositorioUsuario.save(usuario);
+        return "redirect:/usuario";
+    }
+
 
 }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <title>Atividade: Nova</title>
+</head>
+<body>
+        <form th:action="@{salvar}" th:object="${usuario}" method="POST">
+            <input type="text" th:field="*{id}"/>
+            <label>Nome: <input type="text" th:field="*{nomeCompleto}" /></label>
+            <label>Senha: <input type="text" th:field="*{codigo}" /></label>
+            <label>Descrição textual: <input type="text" th:field="*{descricao}" /></label>
+            <label>Email: <input type="text"  th:field="*{email}" /></label>
+            <input type="submit"  />
+            <input type="reset"  />
+        </form>
+</body>
+</html>
