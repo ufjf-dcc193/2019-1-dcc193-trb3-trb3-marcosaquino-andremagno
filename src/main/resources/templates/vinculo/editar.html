@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <title>Atividade: Nova</title>
+</head>
+<body>
+        <form th:action="@{salvar}" th:object="${vinculo}" method="POST">
+           
+            <label>Item de origem: <input type="text" th:field="*{origem}" /></label>
+            <label>Item de destino: <input type="text" th:field="*{destino}" /></label>
+            
+            <input type="submit"  />
+            <input type="reset"  />
+        </form>
+</body>
+</html>

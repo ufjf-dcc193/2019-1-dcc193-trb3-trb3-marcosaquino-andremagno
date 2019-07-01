@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <title>Atividade: Nova</title>
+</head>
+<body>
+
+    <div>
+        <form th:action="@{./salvar}" th:object="${vinculo}" method="POST">
+            <div>
+                    <label for="formGroupExampleInput">Item origem:</label>
+                    <div>
+                        <div th:each="listaOrigem: ${listaOrigem}" th:object=${Item}>
+                            <input type="radio" th:value="${listaOrigem.id}" name="itemOrigem">
+                            <label for="defaultCheck1" th:text="${listaOrigem.titulo}"></label>
+                        </div>
+                    </div>
+            </div>
+            <div>
+                    <label for="formGroupExampleInput">Item Destino:</label>
+                    <div>
+                        <div th:each="listaDestino: ${listaDestino}" th:object=${Item}>
+                            <input type="radio" th:value="${listaDestino.id}" name="itemDestino">
+                            <label for="defaultCheck1" th:text="${listaDestino.titulo}"></label>
+                        </div>
+                    </div>
+            </div>
+            
+            <input type="submit" />
+            <input type="reset" />
+
+        </form>
+    </div>
+</body>
+</html>

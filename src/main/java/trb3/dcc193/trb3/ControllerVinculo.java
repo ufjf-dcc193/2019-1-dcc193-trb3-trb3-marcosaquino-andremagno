@@ -1,6 +1,7 @@
 package trb3.dcc193.trb3;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 
 /**
  * ControllerVinculo
@@ -22,59 +23,51 @@ public class ControllerVinculo {
     @Autowired
     RepositorioVinculo repositorioVinculo;
 
+    @Autowired
+    RepositorioVinculo repositorioItem;
 
-    @RequestMapping({"/vinculo","/vinculo/index.html"})
-    public String vinculoIndex(){
-        return "Itens/vinculo-index.html";
+
+    @RequestMapping("/vinculo")
+    public String listarVinculo(Model model){
+        model.addAttribute("vinculos", repositorioVinculo.findAll());
+        return "vinculo/listar";
     }
- 
-    @RequestMapping(value="/vinculo/form.html", method=RequestMethod.POST)
-    public ModelAndView criar(Vinculo vinculo) {
-       ModelAndView mv = new ModelAndView();
-       mv.setViewName("redirect:/vinculo/list.html");
-       repositorioVinculo.save(vinculo);
-       mv.addObject("vinculo", vinculo);
-       return mv;
-   }
 
+    @RequestMapping("vinculo/criar")
+    public String criarVinculo(Model model){
+        model.addAttribute("vinculo", new Vinculo());
+        model.addAttribute("listaOrigem", repositorioItem.findAll());
+        model.addAttribute("listaDestino", repositorioItem.findAll());
+        
+        return "/vinculo/criar";
+    }
 
-   @RequestMapping(value="/vinculo/edit/salvar.html", method=RequestMethod.POST)
-   public ModelAndView salvar(Vinculo vinculo) {
-      ModelAndView mv = new ModelAndView();
-      mv.setViewName("redirect:/vinculo/list.html");
-      repositorioVinculo.save(vinculo);
-      return mv;
-  }
+    @RequestMapping("vinculo/deletar/{id}")
+    public String deletarVinculo(@PathVariable Long id){
+        repositorioVinculo.deleteById(id);
+        return "redirect:/vinculo";
+    }
 
+    @RequestMapping("vinculo/editar/{id}")
+    public String editarVinculo(@PathVariable Long id, Model model){
+        model.addAttribute("listaOrigem", repositorioItem.findAll());
+        model.addAttribute("listaDestino", repositorioItem.findAll());
 
-   @RequestMapping(value="/vinculo/criar.html", method=RequestMethod.GET)
-   public ModelAndView criar() {
-       ModelAndView mv = new ModelAndView();
-       mv.setViewName("Criar/vinculo");
-       List<Vinculo> aval = repositorioVinculo.findAll();
-       mv.addObject("itens", aval);
-       mv.addObject("vinculo", new Vinculo());
-       return mv;
-   }
+        model.addAttribute("vinculo", repositorioItem.findById(id).get());
+        return "/vinculo/editar";
+    }
 
+    @RequestMapping("vinculo/editar/salvar")
+    public String editarsalvarVinculo(Vinculo vinculo){
+        repositorioVinculo.save(vinculo);
+        return "redirect:/user/vinculo/";
+    }
 
-   @GetMapping("/vinculo/edit/{id}")
-   public ModelAndView  edit(@PathVariable("id") Long id) {
-       System.out.println("asdasssssssssssssss>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>sdasd"+id);
-       ModelAndView mv = new ModelAndView();
-       mv.setViewName("Vinculo/edit");
-       mv.addObject("vinculo", repositorioVinculo.getOne(id));
-       return mv;
-   }
-
-   @RequestMapping(value="/vinculo/list.html", method=RequestMethod.GET)
-   public ModelAndView listar(){
-       List<Vinculo> aval = repositorioVinculo.findAll();
-       ModelAndView mv = new ModelAndView();
-       mv.setViewName("Vinculo/listar");
-       mv.addObject("itens", aval);
-       return mv;
-   }
+    @RequestMapping("vinculo/salvar")
+    public String salvarTrabalho(Vinculo vinculo){
+        repositorioVinculo.save(vinculo);
+        return "redirect:/user/vinculo/";
+    }
 
     
 }
