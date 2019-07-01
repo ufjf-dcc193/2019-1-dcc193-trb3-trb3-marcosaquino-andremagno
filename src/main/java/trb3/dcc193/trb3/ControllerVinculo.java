@@ -24,7 +24,7 @@ public class ControllerVinculo {
     RepositorioVinculo repositorioVinculo;
 
     @Autowired
-    RepositorioVinculo repositorioItem;
+    RepositorioItem repositorioItem;
 
 
     @RequestMapping("/vinculo")
@@ -38,7 +38,6 @@ public class ControllerVinculo {
         model.addAttribute("vinculo", new Vinculo());
         model.addAttribute("listaOrigem", repositorioItem.findAll());
         model.addAttribute("listaDestino", repositorioItem.findAll());
-        
         return "/vinculo/criar";
     }
 

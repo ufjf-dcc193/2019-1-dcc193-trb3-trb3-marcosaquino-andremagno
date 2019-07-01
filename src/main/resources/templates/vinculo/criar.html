@@ -8,24 +8,24 @@
 
     <div>
         <form th:action="@{./salvar}" th:object="${vinculo}" method="POST">
-            <div>
-                    <label for="formGroupExampleInput">Item origem:</label>
-                    <div>
-                        <div th:each="listaOrigem: ${listaOrigem}" th:object=${Item}>
-                            <input type="radio" th:value="${listaOrigem.id}" name="itemOrigem">
-                            <label for="defaultCheck1" th:text="${listaOrigem.titulo}"></label>
+                       <label> Item Origem:</label>
+                        <div th:each="item: ${listaOrigem}" th:object=${Item}>
+                            <input type="radio" th:value="${item.id}" name="itemOrigem">
+                            <label for="defaultCheck1" th:text="${item.titulo}"></label>
                         </div>
-                    </div>
-            </div>
-            <div>
-                    <label for="formGroupExampleInput">Item Destino:</label>
-                    <div>
-                        <div th:each="listaDestino: ${listaDestino}" th:object=${Item}>
-                            <input type="radio" th:value="${listaDestino.id}" name="itemDestino">
-                            <label for="defaultCheck1" th:text="${listaDestino.titulo}"></label>
+        
+
+
+                
+            
+                    <label> Item Destino:</label>
+                   
+                        <div th:each="item2: ${listaDestino}" th:object=${Item}>
+                            <input type="radio" th:value="${item2.id}" name="itemDestino">
+                            <label for="defaultCheck1" th:text="${item2.titulo}"></label>
                         </div>
-                    </div>
-            </div>
+                    
+            
             
             <input type="submit" />
             <input type="reset" />
