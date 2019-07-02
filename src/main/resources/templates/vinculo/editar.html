@@ -12,7 +12,7 @@
                     <label>Item origem:</label>
                     <div>
                         <div th:each="item: ${listaOrigem}" th:object=${Item}>
-                            <input type="radio" th:value="${item.id}" name="origem">
+                            <input type="radio" th:value="${item.id}" th:attr="checked=${vinculo.origem.id == item.id ? true :false} " name="origem">
                             <label for="defaultCheck1" th:text="${item.titulo}"></label>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                     <label>Item Destino:</label>
                     <div>
                         <div th:each="item2: ${listaDestino}" th:object=${Item}>
-                            <input type="radio" th:value="${item2.id}" name="destino">
+                            <input type="radio" th:value="${item2.id}" th:attr="checked=${vinculo.destino.id == item2.id ? true :false} " name="destino">
                             <label for="defaultCheck1" th:text="${item2.titulo}"></label>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <label for="formGroupExampleInput">Etiqueta:</label>
                 <div>
                     <div th:each="listaEtiqueta: ${listaEtiqueta}" th:object=${Etiqueta}>
-                        <input type="checkbox" th:value="${listaEtiqueta.id}" name="etiquetas">
+                        <input type="checkbox" th:value="${listaEtiqueta.id}" th:attr="checked=${vinculo.etiquetas.contains(listaEtiqueta) ? true :false} " name="etiquetas">
                         <label for="defaultCheck1" th:text="${listaEtiqueta.titulo}"></label>
                     </div>
                 </div>    
