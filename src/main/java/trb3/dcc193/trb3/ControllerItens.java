@@ -80,7 +80,7 @@ public class ControllerItens {
     @RequestMapping("item/editar/{id}")
     public String editarItem(@PathVariable Long id, Model model){
         model.addAttribute("item",repositorioItem.findById(id).get());
-        model.addAttribute("estiquetas",repositorioEtiqueta.findAll());
+        model.addAttribute("estiquetass",repositorioEtiqueta.findAll());
         return "item/editar";
     }
 
