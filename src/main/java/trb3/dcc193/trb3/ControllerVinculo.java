@@ -26,10 +26,14 @@ public class ControllerVinculo {
     @Autowired
     RepositorioItem repositorioItem;
 
+    @Autowired
+    RepositorioEtiqueta repositorioEtiqueta;
+
 
     @RequestMapping("/vinculo")
     public String listarVinculo(Model model){
         model.addAttribute("vinculos", repositorioVinculo.findAll());
+        //System.out.println(repositorioVinculo.findById(3).get().etiqueta);
         return "vinculo/listar";
     }
 
@@ -38,6 +42,7 @@ public class ControllerVinculo {
         model.addAttribute("vinculo", new Vinculo());
         model.addAttribute("listaOrigem", repositorioItem.findAll());
         model.addAttribute("listaDestino", repositorioItem.findAll());
+        model.addAttribute("listaEtiqueta", repositorioEtiqueta.findAll());
         return "vinculo/criar";
     }
 
@@ -51,6 +56,7 @@ public class ControllerVinculo {
     public String editarVinculo(@PathVariable Long id, Model model){
         model.addAttribute("listaOrigem", repositorioItem.findAll());
         model.addAttribute("listaDestino", repositorioItem.findAll());
+        model.addAttribute("listaEtiqueta", repositorioEtiqueta.findAll());
 
         model.addAttribute("vinculo", repositorioVinculo.findById(id).get());
         return "vinculo/editar";

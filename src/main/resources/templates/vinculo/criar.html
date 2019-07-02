@@ -24,6 +24,17 @@
                             <input type="radio" th:value="${item2.id}" name="destino">
                             <label for="defaultCheck1" th:text="${item2.titulo}"></label>
                         </div>
+
+                <div>
+                <label for="formGroupExampleInput">Etiqueta:</label>
+                <div>
+                    <div th:each="listaEtiqueta: ${listaEtiqueta}" th:object=${Etiqueta}>
+                        <input type="checkbox" th:value="${listaEtiqueta.id}" name="etiquetas">
+                        <label for="defaultCheck1" th:text="${listaEtiqueta.titulo}"></label>
+                    </div>
+                </div>
+
+            </div>
                     
             
             

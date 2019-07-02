@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -21,7 +22,7 @@ public class Vinculo {
     private Item origem;
     @OneToOne(fetch = FetchType.EAGER)
     private Item destino;
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     private List<Etiqueta> etiquetas;
     @OneToMany(fetch = FetchType.LAZY)
     private List<Anotacao> anotacoes;
@@ -30,10 +31,12 @@ public class Vinculo {
 
     }
 
-    public Vinculo(Item origem, Item destino) {
+    public Vinculo(Item origem, Item destino, List<Etiqueta> etiquetas) {
         this.origem = origem;
         this.destino = destino;
+        this.etiquetas = etiquetas;
     }
+
 
     public Long getId() {
         return id;
@@ -80,6 +83,7 @@ public class Vinculo {
         return "Vinculo [anotacoes=" + anotacoes + ", destino=" + destino + ", etiquetas=" + etiquetas + ", id=" + id
                 + ", origem=" + origem + "]";
     }
+
 
     
 }
