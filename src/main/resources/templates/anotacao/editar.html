@@ -5,6 +5,7 @@
    <title>Atividade: Nova</title>
 </head>
 <body>
+        <li><a href="/"> HOME</a></li>
         <form th:action="@{./salvar}" th:object="${anotacao}" method="POST">
             <label>Id: <input type="text" th:field="*{id}" /></label>
             <label>Titulo: <input type="text" th:field="*{titulo}" /></label>
