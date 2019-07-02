@@ -53,11 +53,6 @@ public class ControllerItens {
     }
 
 
-
-
-
-
-
     @RequestMapping("/item")
     public String listarItem(Model model){
         model.addAttribute("itens",repositorioItem.findAll());
@@ -83,9 +78,6 @@ public class ControllerItens {
         model.addAttribute("estiquetass",repositorioEtiqueta.findAll());
         return "item/editar";
     }
-
-
-
 
 
     @RequestMapping("item/editar/salvar")

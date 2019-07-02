@@ -100,6 +100,15 @@
                 <label  for="defaultCheck1" th:text="${listaEtiqueta.titulo}"></label>
             </div>
         </div>
+
+            <div>
+                <label for="formGroupExampleInput">Anotações:</label>
+                    
+                <div th:each="anot: ${listaAnotacoes}" th:object=${anotacao}>
+                    <input  type="checkbox" th:value="${anot.id}" name="anotacoes">
+                    <label  for="defaultCheck1" th:text="${anot.titulo}"></label>
+                </div>
+            </div>
                     
             
         

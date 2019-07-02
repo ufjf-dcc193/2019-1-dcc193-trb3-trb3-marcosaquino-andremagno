@@ -24,7 +24,7 @@ public class Vinculo {
     private Item destino;
     @ManyToMany
     private List<Etiqueta> etiquetas;
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     private List<Anotacao> anotacoes;
 
     public Vinculo() {

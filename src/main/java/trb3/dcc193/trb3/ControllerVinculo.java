@@ -31,6 +31,8 @@ public class ControllerVinculo {
     @Autowired
     RepositorioEtiqueta repositorioEtiqueta;
 
+    @Autowired
+    RepositorioAnotacao repositorioAnotacao;
 
     @RequestMapping("/vinculo")
     public String listarVinculo(Model model){
@@ -45,6 +47,7 @@ public class ControllerVinculo {
         model.addAttribute("listaOrigem", repositorioItem.findAll());
         model.addAttribute("listaDestino", repositorioItem.findAll());
         model.addAttribute("listaEtiqueta", repositorioEtiqueta.findAll());
+        model.addAttribute("listaAnotacoes", repositorioAnotacao.findAll());
         return "vinculo/criar";
     }
 
@@ -59,6 +62,7 @@ public class ControllerVinculo {
         model.addAttribute("listaOrigem", repositorioItem.findAll());
         model.addAttribute("listaDestino", repositorioItem.findAll());
         model.addAttribute("listaEtiqueta", repositorioEtiqueta.findAll());
+        model.addAttribute("listaAnotacoes", repositorioAnotacao.findAll());
 
         model.addAttribute("vinculo", repositorioVinculo.findById(id).get());
         return "vinculo/editar";
@@ -104,6 +108,7 @@ public class ControllerVinculo {
         model.addAttribute("listaOrigem", repositorioItem.findAll());
         model.addAttribute("listaDestino", repositorioItem.findAll());
         model.addAttribute("listaEtiqueta", repositorioEtiqueta.findAll());
+        model.addAttribute("listaAnotacoes", repositorioAnotacao.findAll());
         return "itemVinculo/criar";
     }
 
@@ -112,6 +117,7 @@ public class ControllerVinculo {
         model.addAttribute("listaOrigem", repositorioItem.findAll());
         model.addAttribute("listaDestino", repositorioItem.findAll());
         model.addAttribute("listaEtiqueta", repositorioEtiqueta.findAll());
+        model.addAttribute("listaAnotacoes", repositorioAnotacao.findAll());
 
         model.addAttribute("vinculo", repositorioVinculo.findById(id).get());
         return "itemVinculo/editar";
