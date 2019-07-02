@@ -16,7 +16,7 @@
             <label for="formGroupExampleInput">Usuario:</label>
                 <div>
                     <div th:each="user: ${usuarios}" th:object=${Etiqueta}>
-                        <input type="checkbox" th:value="${user.id}" th:attr="checked=${anotacao.usuario.id==user.id ? true :false} " name="usuario">
+                        <input type="RADIO" th:value="${user.id}" th:attr="checked=${anotacao.usuario.id==user.id ? true :false} " name="usuario">
                         <label for="defaultCheck1" th:text="${user.nomeCompleto}"></label>
                     </div>
                 </div>  

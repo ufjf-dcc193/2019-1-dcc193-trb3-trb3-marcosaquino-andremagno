@@ -15,7 +15,7 @@
             <label>Data de Alteração: <input type="text" th:field="*{dataDeAlteracao}" /></label>
             
             <div th:each="user: ${usuarios}" th:object=${usuario}>
-                    <input type="checkbox" th:value="${user.id}"
+                    <input type="RADIO" th:value="${user.id}"
                         name="usuario">
                     <label th:text="${user.nomeCompleto}">
                     </label>
