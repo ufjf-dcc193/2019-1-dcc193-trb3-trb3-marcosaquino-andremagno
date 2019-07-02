@@ -1,5 +1,8 @@
 package trb3.dcc193.trb3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +16,10 @@ public class ControllerEtiquetas {
    
     @Autowired
     RepositorioEtiqueta repositorioEtiqueta;
+
+    @Autowired
+    RepositorioItem repositorioItem;
+
 
     @RequestMapping("/etiqueta")
     public String listar(Model model){
@@ -48,5 +55,30 @@ public class ControllerEtiquetas {
         repositorioEtiqueta.save(etiqueta);
         return "redirect:/etiqueta";
     }
+
+    @RequestMapping("/etiqueta/Itens/editar/{id}")
+    public String listar(@PathVariable Long id, Model model){
+
+        List<Item> vin= repositorioItem.findAll();
+        
+
+        List<Item> listaItemConteEtiqueta = new ArrayList<>();
+        for(int i=0;i<vin.size();i++){
+            List<Etiqueta> e = vin.get(i).getEtiquetas();
+            for(int r=0;r<e.size();r++){
+                if(e.get(r).getId()==id){
+                    listaItemConteEtiqueta.add(vin.get(i));
+                    System.out.println("ssss");
+                }
+
+            }
+        }
+
+        model.addAttribute("itens",listaItemConteEtiqueta);  
+        model.addAttribute("id", id);    
+        return "etiqueta/listarItens";
+
+    }
+    
 
 }

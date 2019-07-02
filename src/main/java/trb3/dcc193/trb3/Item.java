@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
@@ -20,7 +21,7 @@ public class Item {
     private String titulo;
     @OneToMany(fetch = FetchType.LAZY)
     private List<Anotacao> anotacoes;
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     private List<Etiqueta> etiquetas;
     @OneToMany(fetch = FetchType.LAZY)
     private List<Vinculo> vinculos;
@@ -28,6 +29,8 @@ public class Item {
     public Item(){
 
     }
+
+    
 
     public Item(String titulo) {
         this.titulo = titulo;
