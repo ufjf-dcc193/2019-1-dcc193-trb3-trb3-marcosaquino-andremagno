@@ -13,12 +13,13 @@
             <label>URL: <input type="text" th:field="*{url}" /></label>
             <label>Data de Inclução: <input type="text" th:field="*{dataDeInclusao}" /></label>
             <label>Data de Alteração: <input type="text" th:field="*{dataDeAlteracao}" /></label>
-            <div th:each="user: ${usuarios}" th:object=${usuario}>
-                    <input type="checkbox" th:value="${user.id}"
-                        name="usuario">
-                    <label th:text="${user.nomeCompleto}">
-                    </label>
-            </div>
+            <label for="formGroupExampleInput">Usuario:</label>
+                <div>
+                    <div th:each="user: ${usuarios}" th:object=${Etiqueta}>
+                        <input type="checkbox" th:value="${user.id}" th:attr="checked=${anotacao.usuario.id==user.id ? true :false} " name="usuario">
+                        <label for="defaultCheck1" th:text="${user.nomeCompleto}"></label>
+                    </div>
+                </div>  
             <input type="submit"  />
             <input type="reset" />
         </form>      

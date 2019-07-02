@@ -26,8 +26,8 @@ public class ControllerItens {
     RepositorioVinculo repositorioVinculo;
 
 
-
-
+    @Autowired
+    RepositorioUsuario user;
 
     @RequestMapping("/c")
     public String Carregar(Model model){
@@ -42,6 +42,9 @@ public class ControllerItens {
         repositorioEtiqueta.save(new Etiqueta("Filosofia","Descrição da Etiqueta","URL da Etiqueta"));
         repositorioEtiqueta.save(new Etiqueta("Matematica","Descrição da Etiqueta","URL da Etiqueta"));
 
+        user.save(new Usuario("Joao","111111","ssss","asdasd"));
+        user.save(new Usuario("Maria","111111","ssss","asdasd"));
+        user.save(new Usuario("Julio","111111","ssss","asdasd"));
 
 
 

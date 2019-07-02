@@ -44,13 +44,12 @@ public class ControllerAnotacao {
     @RequestMapping("anotacao/editar/{id}")
     public String editarAnotacao(@PathVariable Long id, Model model){
         model.addAttribute("anotacao",repositorioAnotacao.findById(id).get());
+        model.addAttribute("usuarios",repositorioUsuario.findAll());
         return "anotacao/editar";
     }
 
     @RequestMapping("anotacao/editar/salvar")
     public String editarSalvarAnotacao(Anotacao anotacao){
-        Date data=new Date();
-        anotacao.setDataDeAlteracao(data.toString());
         repositorioAnotacao.save(anotacao);
         return "redirect:/anotacao";
     }
