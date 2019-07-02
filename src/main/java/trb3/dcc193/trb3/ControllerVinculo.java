@@ -3,6 +3,8 @@ package trb3.dcc193.trb3;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
+import java.util.ArrayList;
+
 /**
  * ControllerVinculo
  */
@@ -72,6 +74,62 @@ public class ControllerVinculo {
     public String salvarTrabalho(Vinculo vinculo){
         repositorioVinculo.save(vinculo);
         return "redirect:/vinculo";
+    }
+
+
+
+    ////////////////////////////
+
+
+    @RequestMapping("item/vinculo/{id}")
+    public String ItemVinculo(@PathVariable Long id, Model model){
+
+        List<Vinculo> vin= repositorioVinculo.findAll();
+        List<Vinculo> vinculosComId = new ArrayList<>();
+        for(int i=0;i<vin.size();i++){
+            if(vin.get(i).getOrigem().getId()==id){
+                vinculosComId.add(vin.get(i));
+            }
+        }
+        model.addAttribute("vinculos",vinculosComId);  
+        model.addAttribute("id", id);     
+        return "itemVinculo/listar";
+    }
+
+
+    @RequestMapping("item/vinculo/criar/{id}")
+    public String criarItemVinculo(@PathVariable Long id, Model model){
+        model.addAttribute("vinculo", new Vinculo());
+        model.addAttribute("origem",repositorioItem.findById(id).get());
+        model.addAttribute("listaOrigem", repositorioItem.findAll());
+        model.addAttribute("listaDestino", repositorioItem.findAll());
+        model.addAttribute("listaEtiqueta", repositorioEtiqueta.findAll());
+        return "itemVinculo/criar";
+    }
+
+    @RequestMapping("item/vinculo/editar/{id}")
+    public String criarItemVinculoEditar(@PathVariable Long id, Model model){
+        model.addAttribute("listaOrigem", repositorioItem.findAll());
+        model.addAttribute("listaDestino", repositorioItem.findAll());
+        model.addAttribute("listaEtiqueta", repositorioEtiqueta.findAll());
+
+        model.addAttribute("vinculo", repositorioVinculo.findById(id).get());
+        return "itemVinculo/editar";
+    }
+
+
+
+
+    @RequestMapping("item/vinculo/editar/salvar")
+    public String editarsalvarItemVinculo(Vinculo vinculo){
+        repositorioVinculo.save(vinculo);
+        return "redirect:/item/vinculo/"+vinculo.getOrigem().getId();
+    }
+
+    @RequestMapping("item/vinculo/criar/salvar")
+    public String salvarItemTrabalho(Vinculo vinculo){
+        repositorioVinculo.save(vinculo);
+        return "redirect:/item/vinculo/"+vinculo.getOrigem().getId();
     }
 
     

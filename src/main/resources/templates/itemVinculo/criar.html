@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <title>Atividade: Nova</title>
+</head>
+<body>
+
+    <div>
+        <form th:action="@{./salvar}" th:object="${vinculo}" method="POST">
+                    
+            <label>Item origem:</label>
+            <div>
+                <div th:each="item: ${listaOrigem}" th:object=${Item}>
+                    <input type="radio" th:value="${item.id}" th:attr="checked=${origem.id == item.id ? true :false} " name="origem">
+                    <label for="defaultCheck1" th:text="${item.titulo}"></label>
+                </div>
+            </div>
+
+                    <label> Item Destino:</label>
+                   
+                        <div th:each="item2: ${listaDestino}" th:object=${Item}>
+                            <input type="radio" th:value="${item2.id}" name="destino">
+                            <label for="defaultCheck1" th:text="${item2.titulo}"></label>
+                        </div>
+
+                <div>
+                <label for="formGroupExampleInput">Etiqueta:</label>
+                <div>
+                    <div th:each="listaEtiqueta: ${listaEtiqueta}" th:object=${Etiqueta}>
+                        <input type="checkbox" th:value="${listaEtiqueta.id}" name="etiquetas">
+                        <label for="defaultCheck1" th:text="${listaEtiqueta.titulo}"></label>
+                    </div>
+                </div>
+
+            </div>
+                    
+            
+            
+            <input type="submit" />
+            <input type="reset" />
+
+        </form>
+    </div>
+</body>
+</html>

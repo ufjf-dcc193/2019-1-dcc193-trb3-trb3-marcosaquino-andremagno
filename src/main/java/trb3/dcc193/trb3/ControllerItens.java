@@ -46,7 +46,7 @@ public class ControllerItens {
         user.save(new Usuario("Maria","111111","ssss","asdasd"));
         user.save(new Usuario("Julio","111111","ssss","asdasd"));
 
-
+     
 
         model.addAttribute("itens",repositorioItem.findAll());
         return "item/listar";
@@ -84,19 +84,7 @@ public class ControllerItens {
         return "item/editar";
     }
 
-    @RequestMapping("item/vinculo/{id}")
-    public String ItemVinculo(@PathVariable Long id, Model model){
 
-        List<Vinculo> vin= repositorioVinculo.findAll();
-        List<Vinculo> vinculosComId = new ArrayList<>();
-        for(int i=0;i<vin.size();i++){
-            if(vin.get(i).getOrigem().getId()==id){
-                vinculosComId.add(vin.get(i));
-            }
-        }
-        model.addAttribute("vinculos",vinculosComId);       
-        return "item/ItemVinculo";
-    }
 
 
 

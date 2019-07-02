@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <title>Atividade: Nova</title>
+</head>
+<body>
+
+<form th:action="@{./salvar}" th:object="${vinculo}" method="POST">
+            <input type="text" th:field="*{id}" />
+            <div>
+                    <label>Item origem:</label>
+                    <div>
+                        <div th:each="item: ${listaOrigem}" th:object=${Item}>
+                            <input type="radio" th:value="${item.id}" th:attr="checked=${vinculo.origem.id == item.id ? true :false} " name="origem">
+                            <label for="defaultCheck1" th:text="${item.titulo}"></label>
+                        </div>
+                    </div>
+            </div>
+            <div>
+                    <label>Item Destino:</label>
+                    <div>
+                        <div th:each="item2: ${listaDestino}" th:object=${Item}>
+                            <input type="radio" th:value="${item2.id}" th:attr="checked=${vinculo.destino.id == item2.id ? true :false} " name="destino">
+                            <label for="defaultCheck1" th:text="${item2.titulo}"></label>
+                        </div>
+                    </div>
+            </div>  
+
+            <div>
+                <label for="formGroupExampleInput">Etiqueta:</label>
+                <div>
+                    <div th:each="listaEtiqueta: ${listaEtiqueta}" th:object=${Etiqueta}>
+                        <input type="checkbox" th:value="${listaEtiqueta.id}" th:attr="checked=${vinculo.etiquetas.contains(listaEtiqueta) ? true :false} " name="etiquetas">
+                        <label for="defaultCheck1" th:text="${listaEtiqueta.titulo}"></label>
+                    </div>
+                </div>    
+            </div>             
+            
+            
+            <input type="submit" />
+            <input type="reset" />
+
+        </form>
+</body>
+</html>
