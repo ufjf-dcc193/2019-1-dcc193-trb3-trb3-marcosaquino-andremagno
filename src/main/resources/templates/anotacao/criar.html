@@ -14,7 +14,7 @@
         <li class="nav-item"><a class="nav-link" href="/anotacao">Voltar</a></li>
     </ul>
 
-        <form th:action="@{./salvar}" th:object="${anotacao}" method="POST">
+    <!--   <form th:action="@{./salvar}" th:object="${anotacao}" method="POST">
             <label>Titulo: <input type="text" th:field="*{titulo}" /></label>
             <label>Descrição: <input type="text" th:field="*{descricao}" /></label>
             <label>URL: <input type="text" th:field="*{url}" /></label>
@@ -29,7 +29,64 @@
             </div>
             <input type="submit"  />
             <input type="reset" />
-        </form>      
+        </form>    --> 
+
+    <form th:action="@{salvar}" th:object="${anotacao}" method="POST">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Título:</label> 
+                <div class="form-group mx-sm-1 mb-2">
+                    <input class="form-control" placeholder="Digite o título da anotação" type="text" th:field="*{titulo}" />
+                </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Descrição:</label>
+                <div class="form-group mx-sm-1 mb-2">
+                    <input class="form-control" placeholder="Digite uma descrição" type="text" th:field="*{descricao}" />
+                </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">URL:</label>
+                <div class="form-group mx-sm-1 mb-2">
+                    <input class="form-control" placeholder="Digite um endereço URL" type="text" th:field="*{url}" />
+                </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Data de inclusão:</label>
+                <div class="form-group mx-sm-1 mb-2">
+                    <input class="form-control" type="date" th:field="*{dataDeInclusao}" />
+                </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Data de alteração:</label>
+                <div class="form-group mx-sm-1 mb-2">
+                    <input class="form-control" type="date" th:field="*{dataDeAlteracao}" />
+                </div>
+        </div>
+
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Usuários:</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check" th:each="user: ${usuarios}" th:object=${usuario}>
+                            <input class="form-check-input" type="RADIO" th:value="${user.id}" name="usuario">
+                            <label class="form-check-label" th:text="${user.nomeCompleto}"></label>
+                        </div>
+                    </div>
+            </div>
+        </fieldset>
+
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Criar</button>
+                <button type="reset" class="btn btn-primary">Limpar</button>
+            </div>
+        </div>
+
+    </form>
 </body>
 </html>
 
