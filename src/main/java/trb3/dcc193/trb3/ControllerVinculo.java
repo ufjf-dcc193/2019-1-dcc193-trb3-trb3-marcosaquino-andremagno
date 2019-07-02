@@ -33,39 +33,39 @@ public class ControllerVinculo {
         return "vinculo/listar";
     }
 
-    @RequestMapping("vinculo/criar")
+    @RequestMapping("/vinculo/criar")
     public String criarVinculo(Model model){
         model.addAttribute("vinculo", new Vinculo());
         model.addAttribute("listaOrigem", repositorioItem.findAll());
         model.addAttribute("listaDestino", repositorioItem.findAll());
-        return "/vinculo/criar";
+        return "vinculo/criar";
     }
 
-    @RequestMapping("vinculo/deletar/{id}")
+    @RequestMapping("/vinculo/deletar/{id}")
     public String deletarVinculo(@PathVariable Long id){
         repositorioVinculo.deleteById(id);
         return "redirect:/vinculo";
     }
 
-    @RequestMapping("vinculo/editar/{id}")
+    @RequestMapping("/vinculo/editar/{id}")
     public String editarVinculo(@PathVariable Long id, Model model){
         model.addAttribute("listaOrigem", repositorioItem.findAll());
         model.addAttribute("listaDestino", repositorioItem.findAll());
 
-        model.addAttribute("vinculo", repositorioItem.findById(id).get());
-        return "/vinculo/editar";
+        model.addAttribute("vinculo", repositorioVinculo.findById(id).get());
+        return "vinculo/editar";
     }
 
-    @RequestMapping("vinculo/editar/salvar")
+    @RequestMapping("/vinculo/editar/salvar")
     public String editarsalvarVinculo(Vinculo vinculo){
         repositorioVinculo.save(vinculo);
-        return "redirect:/user/vinculo/";
+        return "redirect:/vinculo";
     }
 
-    @RequestMapping("vinculo/salvar")
+    @RequestMapping("/vinculo/salvar")
     public String salvarTrabalho(Vinculo vinculo){
         repositorioVinculo.save(vinculo);
-        return "redirect:/user/vinculo/";
+        return "redirect:/vinculo";
     }
 
     
