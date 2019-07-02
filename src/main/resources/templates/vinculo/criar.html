@@ -10,7 +10,7 @@
         <form th:action="@{./salvar}" th:object="${vinculo}" method="POST">
                        <label> Item Origem:</label>
                         <div th:each="item: ${listaOrigem}" th:object=${Item}>
-                            <input type="radio" th:value="${item.id}" name="itemOrigem">
+                            <input type="radio" th:value="${item.id}" name="origem">
                             <label for="defaultCheck1" th:text="${item.titulo}"></label>
                         </div>
         
@@ -21,7 +21,7 @@
                     <label> Item Destino:</label>
                    
                         <div th:each="item2: ${listaDestino}" th:object=${Item}>
-                            <input type="radio" th:value="${item2.id}" name="itemDestino">
+                            <input type="radio" th:value="${item2.id}" name="destino">
                             <label for="defaultCheck1" th:text="${item2.titulo}"></label>
                         </div>
                     

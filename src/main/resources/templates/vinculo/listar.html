@@ -15,8 +15,8 @@
                 <td><a th:href="@{'vinculo/editar/' + ${vinculo.id}}" role="button">Editar</a></td>
                 <td><a th:href="@{'vinculo/deletar/' + ${vinculo.id}}" role="button">Deletar</a></td>
                 <td th:text=${vinculo.id}></td>
-                <td th:text=${vinculo.origem}></td>
-                <td th:text=${vinculo.destino}></td>
+                <td th:text=${vinculo.origem.titulo}></td>
+                <td th:text=${vinculo.destino.titulo}></td>
             </tr>
         </tbody>
     </table>

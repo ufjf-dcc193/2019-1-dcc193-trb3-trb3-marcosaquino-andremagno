@@ -5,13 +5,32 @@
    <title>Atividade: Nova</title>
 </head>
 <body>
-        <form th:action="@{salvar}" th:object="${vinculo}" method="POST">
-           
-            <label>Item de origem: <input type="text" th:field="*{origem}" /></label>
-            <label>Item de destino: <input type="text" th:field="*{destino}" /></label>
+
+<form th:action="@{./salvar}" th:object="${vinculo}" method="POST">
+            <input type="text" th:field="*{id}" />
+            <div>
+                    <label>Item origem:</label>
+                    <div>
+                        <div th:each="item: ${listaOrigem}" th:object=${Item}>
+                            <input type="radio" th:value="${item.id}" name="origem">
+                            <label for="defaultCheck1" th:text="${item.titulo}"></label>
+                        </div>
+                    </div>
+            </div>
+            <div>
+                    <label>Item Destino:</label>
+                    <div>
+                        <div th:each="item2: ${listaDestino}" th:object=${Item}>
+                            <input type="radio" th:value="${item2.id}" name="destino">
+                            <label for="defaultCheck1" th:text="${item2.titulo}"></label>
+                        </div>
+                    </div>
+            </div>                   
             
-            <input type="submit"  />
-            <input type="reset"  />
+            
+            <input type="submit" />
+            <input type="reset" />
+
         </form>
 </body>
 </html>
