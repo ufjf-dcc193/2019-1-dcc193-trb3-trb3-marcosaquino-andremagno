@@ -36,6 +36,15 @@ public class Anotacao{
         this.dataDeAlteracao = dataDeAlteracao;
     }
 
+    public Anotacao(String titulo, String descricao, String url, String dataDeInclusao, String dataDeAlteracao, Usuario usuario) {
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.url = url;
+        this.dataDeInclusao = dataDeInclusao;
+        this.dataDeAlteracao = dataDeAlteracao;
+        this.usuario = usuario;
+    }
+
     public Long getId() {
         return id;
     }

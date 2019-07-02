@@ -88,7 +88,49 @@ public class DemoApplication {
 		user5 = new Usuario("Angela", "5", "Aluno", "angela@gmail.com");
 		repositorioUsuario.save(user5);
 
-		
+		item1 = new Item("A Obra");
+		repositorioItem.save(item1);
+		item2 = new Item("Ventos");
+		repositorioItem.save(item2);
+		item3 = new Item("Crônicas");
+		repositorioItem.save(item3);
+		item4 = new Item("Receitas caseiras");
+		repositorioItem.save(item4);
+		item5 = new Item("O poder de tudo");
+		repositorioItem.save(item5);
+
+		etiq1 = new Etiqueta("Casual", "Leitura leve", "www.casual.com");
+		repositorioEtiqueta.save(etiq1);
+		etiq2 = new Etiqueta("Culinária", "tutoriais", "www.cozinha.com");
+		repositorioEtiqueta.save(etiq2);
+		etiq3 = new Etiqueta("Ensino", "estudos", "www.ensino.com");
+		repositorioEtiqueta.save(etiq1);
+		etiq4 = new Etiqueta("Ação", "Aventuras", "www.acao.com");
+		repositorioEtiqueta.save(etiq1);
+		etiq5 = new Etiqueta("Esporte", "Esportes", "www.esporte.com");
+		repositorioEtiqueta.save(etiq1);
+
+		vinc1 = new Vinculo(item1, item2);
+		repositorioVinculo.save(vinc1);
+		vinc2 = new Vinculo(item3, item4);
+		repositorioVinculo.save(vinc1);
+		vinc3 = new Vinculo(item5, item2);
+		repositorioVinculo.save(vinc1);
+		vinc4 = new Vinculo(item3, item2);
+		repositorioVinculo.save(vinc1);
+		vinc5 = new Vinculo(item1, item5);
+		repositorioVinculo.save(vinc1);
+
+		anot1 = new Anotacao("Anotacao1", "Descricao1", "www.urlanotacao.com", "10/12/18", "10/03/19", user1);
+		repositorioAnotacao.save(anot1);
+		anot2 = new Anotacao("Anotacao2", "Descricao2", "www.urlanotacao2.com", "04/11/17", "07/05/19", user2);
+		repositorioAnotacao.save(anot2);
+		anot3 = new Anotacao("Anotacao3", "Descricao3", "www.urlanotacao3.com", "10/10/18", "11/04/19", user3);
+		repositorioAnotacao.save(anot3);
+		anot4 = new Anotacao("Anotacao4", "Descricao4", "www.urlanotacao4.com", "03/12/18", "01/02/19", user4);
+		repositorioAnotacao.save(anot4);
+		anot5 = new Anotacao("Anotacao5", "Descricao5", "www.urlanotacao5.com", "08/11/18", "19/05/19", user5);
+		repositorioAnotacao.save(anot5);
 
 	}
 

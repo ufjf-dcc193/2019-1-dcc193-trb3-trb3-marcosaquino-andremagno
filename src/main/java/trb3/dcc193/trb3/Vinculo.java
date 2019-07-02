@@ -31,6 +31,12 @@ public class Vinculo {
 
     }
 
+    public Vinculo(Item origem, Item destino) {
+        this.origem = origem;
+        this.destino = destino;
+        
+    }
+
     public Vinculo(Item origem, Item destino, List<Etiqueta> etiquetas) {
         this.origem = origem;
         this.destino = destino;
