@@ -5,14 +5,16 @@
    <title>Atividade: Nova</title>
 </head>
 <body>
-        <form th:action="@{./salvar}" th:object="${etiqueta}" method="POST">
+
+        <li><a href="/"> HOME</a></li>
+        <form th:action="@{./salvar}" th:object="${anotacao}" method="POST">
             <label>Titulo: <input type="text" th:field="*{titulo}" /></label>
             <label>Descrição: <input type="text" th:field="*{descricao}" /></label>
             <label>URL: <input type="text" th:field="*{url}" /></label>
             <label>Data de Inclução: <input type="text" th:field="*{dataDeInclusao}" /></label>
             <label>Data de Alteração: <input type="text" th:field="*{dataDeAlteracao}" /></label>
             
-            <div th:each="user: ${usuarios}" th:object=${Etiqueta}>
+            <div th:each="user: ${usuarios}" th:object=${usuario}>
                     <input type="checkbox" th:value="${user.id}"
                         name="usuario">
                     <label th:text="${user.nomeCompleto}">

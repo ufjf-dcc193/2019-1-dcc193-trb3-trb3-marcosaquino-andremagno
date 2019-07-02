@@ -12,7 +12,7 @@
             <label>URL: <input type="text" th:field="*{url}" /></label>
             <label>Data de Inclução: <input type="text" th:field="*{dataDeInclusao}" /></label>
             <label>Data de Alteração: <input type="text" th:field="*{dataDeAlteracao}" /></label>
-            <div th:each="user: ${usuarios}" th:object=${Etiqueta}>
+            <div th:each="user: ${usuarios}" th:object=${usuario}>
                     <input type="checkbox" th:value="${user.id}"
                         name="usuario">
                     <label th:text="${user.nomeCompleto}">
