@@ -3,16 +3,31 @@
 <head>
    <meta charset="UTF-8">
    <title>Atividade: Nova</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+
+    <header th:include="cabecalho :: header"></header>
+
+    <ul class="nav nav-pills mb-3">
+        <li class="nav-item"><a class="nav-link" href="/">Página Inicial</a></li>
+        <li class="nav-item"><a class="nav-link" href="/usuario">Voltar</a></li>
+    </ul>
+
+
+
         <form th:action="@{salvar}" th:object="${usuario}" method="POST">
-           
-            <label>Nome: <input type="text" th:field="*{nomeCompleto}" /></label>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Nome:</label> 
+                    <input class="form-control" placeholder="Email" type="text" th:field="*{nomeCompleto}" />
+
+
             <label>Senha: <input type="text" th:field="*{codigo}" /></label>
             <label>Descrição textual: <input type="text" th:field="*{descricao}" /></label>
             <label>Email: <input type="text"  th:field="*{email}" /></label>
             <input type="submit"  />
             <input type="reset"  />
+
         </form>
 </body>
 </html>
