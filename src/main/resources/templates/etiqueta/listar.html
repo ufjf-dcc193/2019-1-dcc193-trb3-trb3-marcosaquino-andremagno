@@ -15,21 +15,21 @@
         <li class="nav-item"><a class="nav-link" href="etiqueta/criar">Nova Etiqueta</a></li>
     </ul>
     
-    <caption>Lista de Etiquetas </caption>
+    
     <table class="table table-hover">
+    <caption>Lista de Etiquetas </caption>
     
         <thead>
-            <tr> <th>Operação</th> <th>Operação</th> <th>Operação</th> <th>Titulo</th><th>Descrição</th> <th>URL</th>
+            <tr> <th>Titulo</th><th>Descrição</th> <th>URL</th> <th></th> <th></th> <th></th> </tr>
         </thead>
         <tbody>
             <tr th:each="etiqueta: ${etiquetas}">
-               
-                <td><a th:href="@{'etiqueta/editar/' + ${etiqueta.id}}" role="button">Editar</a></td>
-                <td><a th:href="@{'etiqueta/deletar/' + ${etiqueta.id}}" role="button">Deletar</a></td>
-                <td><a th:href="@{'/etiqueta/Itens/editar/' + ${etiqueta.id}}" role="button">Itens</a></td>
                 <td th:text=${etiqueta.Titulo}></td>
                 <td th:text=${etiqueta.descricao}></td>
                 <td th:text=${etiqueta.url}></td>
+                <td><a th:href="@{'etiqueta/editar/' + ${etiqueta.id}}" role="button">Editar</a></td>
+                <td><a th:href="@{'etiqueta/deletar/' + ${etiqueta.id}}" role="button">Deletar</a></td>
+                <td><a th:href="@{'/etiqueta/Itens/editar/' + ${etiqueta.id}}" role="button">Itens</a></td>
             </tr>
         </tbody>
     </table>

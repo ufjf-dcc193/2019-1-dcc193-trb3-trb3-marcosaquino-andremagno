@@ -19,14 +19,14 @@
         
         </li> <h3> Item Selecionado: <span th:text="${item.titulo}"></span></h3>
     <li><a th:href="@{'/item/vinculo/criar/' + ${id}}" role="button">Criar novo Vinculo  </a></li>
-    <table>
+    <table class="table table-hover">
+    <caption>Lista de Itens </caption>
         <thead>
-            <tr> <th>Operação</th> <th>Operação</th> <th>id</th> <th>Origem</th> <th>Destino</th> <th>Etiquetas</th><th>Anotações</th> </tr>
+            <tr> <th>id</th> <th>Origem</th> <th>Destino</th> <th>Etiquetas</th><th>Anotações</th> <th></th> <th></th>  </tr>
         </thead>
         <tbody>
             <tr th:each="vinculo: ${vinculos}">
-                <td><a th:href="@{'/item/vinculo/editar/' + ${vinculo.id}}" role="button">Editar</a></td>
-                <td><a th:href="@{'/vinculo/deletar/' + ${vinculo.id}}" role="button">Deletar</a></td>
+                
                 <td th:text=${vinculo.id}></td>
                 <td th:text=${vinculo.origem.titulo}></td>
                 <td th:text=${vinculo.destino.titulo}></td>
@@ -41,6 +41,9 @@
                             <span th:text="${anot.titulo}"></span>
                         </div>
                 </td>
+
+                <td><a th:href="@{'/item/vinculo/editar/' + ${vinculo.id}}" role="button">Editar</a></td>
+                <td><a th:href="@{'/vinculo/deletar/' + ${vinculo.id}}" role="button">Deletar</a></td>
             </tr>
         </tbody>
     </table>

@@ -13,16 +13,16 @@
         <li class="nav-item"><a class="nav-link" href="/">Página Inicial</a></li>
         <li class="nav-item"><a class="nav-link" href="vinculo/criar">Novo Vínculo</a></li>
     </ul>
-    <caption>Lista de Vínculos cadastrados</caption>
+    
     <table class="table table-hover">
+    <caption>Lista de Vínculos cadastrados</caption>
     
         <thead>
-            <tr> <th>Operação</th> <th>Operação</th> <th>id</th> <th>Origem</th> <th>Destino</th> <th>Etiquetas</th> <th>Anotações</th> </tr>
+            <tr> <th>id</th> <th>Origem</th> <th>Destino</th> <th>Etiquetas</th> <th>Anotações</th> <th></th> <th></th>  </tr>
         </thead>
         <tbody>
             <tr th:each="vinculo: ${vinculos}">
-                <td><a th:href="@{'vinculo/editar/' + ${vinculo.id}}" role="button">Editar</a></td>
-                <td><a th:href="@{'vinculo/deletar/' + ${vinculo.id}}" role="button">Deletar</a></td>
+                
                 <td th:text=${vinculo.id}></td>
                 <td th:text=${vinculo.origem.titulo}></td>
                 <td th:text=${vinculo.destino.titulo}></td>
@@ -34,10 +34,12 @@
                 </td>
 
                 <td>
-                        <div th:each="anot: ${vinculo.anotacoes}">
-                            <span th:text="${anot.titulo}"></span>
-                        </div>
-                    </td>
+                    <div th:each="anot: ${vinculo.anotacoes}">
+                        <span th:text="${anot.titulo}"></span>
+                    </div>
+                </td>
+                <td><a th:href="@{'vinculo/editar/' + ${vinculo.id}}" role="button">Editar</a></td>
+                <td><a th:href="@{'vinculo/deletar/' + ${vinculo.id}}" role="button">Deletar</a></td>
             </tr>
         </tbody>
     </table>
