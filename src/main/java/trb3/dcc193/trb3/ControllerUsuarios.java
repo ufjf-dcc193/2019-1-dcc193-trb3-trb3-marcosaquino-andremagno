@@ -27,7 +27,7 @@ public class ControllerUsuarios {
     }
     
     @RequestMapping("usuario/deletar/{id}")
-    public String deletarUsuario(@PathVariable Long id){
+    public String deletarUsuario(@PathVariable Long id, Model model){
         repositorioUsuario.deleteById(id);
         return "redirect:/usuario";
     }

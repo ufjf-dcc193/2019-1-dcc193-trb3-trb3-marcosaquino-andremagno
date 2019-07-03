@@ -75,7 +75,7 @@ public class ControllerEtiquetas {
         }
 
         model.addAttribute("itens",listaItemConteEtiqueta);  
-        model.addAttribute("id", id);    
+        model.addAttribute("etiqueta", repositorioEtiqueta.findById(id).get());    
         return "etiqueta/listarItens";
 
     }

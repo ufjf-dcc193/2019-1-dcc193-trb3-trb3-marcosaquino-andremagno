@@ -7,8 +7,9 @@
 <body>
 
     <div>
+        </li> <h3> Item Selecionado: <span th:text="${item.titulo}"></span></h3>
         <form th:action="@{./salvar}" th:object="${vinculo}" method="POST">
-                    
+        
             <label>Item origem:</label>
             <div>
                 <div th:each="item: ${listaOrigem}" th:object=${Item}>
@@ -32,6 +33,14 @@
                         <label for="defaultCheck1" th:text="${listaEtiqueta.titulo}"></label>
                     </div>
                 </div>
+                <div>
+                        <label for="formGroupExampleInput">Anotações:</label>
+                            
+                        <div th:each="anot: ${listaAnotacoes}" th:object=${anotacao}>
+                            <input  type="checkbox" th:value="${anot.id}" name="anotacoes">
+                            <label  for="defaultCheck1" th:text="${anot.titulo}"></label>
+                        </div>
+                    </div>
 
             </div>
                     

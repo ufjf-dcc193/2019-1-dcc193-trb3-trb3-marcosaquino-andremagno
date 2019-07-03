@@ -35,7 +35,16 @@
                         <label for="defaultCheck1" th:text="${listaEtiqueta.titulo}"></label>
                     </div>
                 </div>    
-            </div>             
+            </div>   
+            <div>
+                    <label for="formGroupExampleInput">Anotações:</label>
+                    <div>
+                        <div th:each="anot: ${listaAnotacoes}" th:object=${Etiqueta}>
+                            <input type="checkbox" th:value="${anot.id}" th:attr="checked=${vinculo.anotacoes.contains(anot) ? true :false} " name="anotacoes">
+                            <label for="defaultCheck1" th:text="${anot.titulo}"></label>
+                        </div>
+                    </div>    
+                </div>           
             
             
             <input type="submit" />

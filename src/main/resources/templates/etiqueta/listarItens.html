@@ -11,22 +11,25 @@
 
     <ul class="nav nav-pills mb-3">
         <li class="nav-item"><a class="nav-link" href="/">Página Inicial</a></li>
-        <li class="nav-item"><a class="nav-link" href="item/criar">Novo Item</a></li>
-    </ul>
     
+    </ul>
+    <h3> Etiqueta Selecionada: <span th:text="${etiqueta.titulo}"></span></h3>
     <table class="table table-hover">
 
     <input type="hidden" th:value="${id}" >
     <caption>Lista de Itens cadastrados</caption>
         <thead>
-            <tr> <th>Operação</th> <th>Operação</th> <th>Operação</th> <th>Titulo</th>
+            <tr> <th>Titulo</th> <th>Etiquetas</th> </tr>
         </thead>
         <tbody>
+            
             <tr th:each="item: ${itens}">
-                <td><a th:href="@{'item/vinculo/' + ${item.id}}" role="button">Vinculos</a></td>
-                <td><a th:href="@{'item/editar/' + ${item.id}}" role="button">Editar</a></td>
-                <td><a th:href="@{'item/deletar/' + ${item.id}}" role="button">Deletar</a></td>
                 <td th:text=${item.Titulo}></td>
+                <td>
+                        <div th:each="listaEtiqueta: ${item.etiquetas}">
+                            <span th:text="${listaEtiqueta.titulo}"></span>
+                        </div>
+                </td>
             </tr>
         </tbody>
     </table>

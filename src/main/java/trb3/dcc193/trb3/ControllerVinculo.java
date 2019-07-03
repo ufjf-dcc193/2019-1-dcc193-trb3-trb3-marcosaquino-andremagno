@@ -96,7 +96,7 @@ public class ControllerVinculo {
             }
         }
         model.addAttribute("vinculos",vinculosComId);  
-        model.addAttribute("id", id);     
+        model.addAttribute("item", repositorioItem.findById(id).get());     
         return "itemVinculo/listar";
     }
 
@@ -109,6 +109,7 @@ public class ControllerVinculo {
         model.addAttribute("listaDestino", repositorioItem.findAll());
         model.addAttribute("listaEtiqueta", repositorioEtiqueta.findAll());
         model.addAttribute("listaAnotacoes", repositorioAnotacao.findAll());
+        model.addAttribute("item", repositorioItem.findById(id).get());
         return "itemVinculo/criar";
     }
 
