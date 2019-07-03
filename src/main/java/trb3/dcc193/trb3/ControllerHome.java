@@ -14,8 +14,6 @@ public class ControllerHome {
     RepositorioUsuario repositorioUsuario;
 
 
-
-
     @RequestMapping({"","/","home"})
     public String home(Model model){
         model.addAttribute("usuario", new Usuario());
